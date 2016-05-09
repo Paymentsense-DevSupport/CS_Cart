@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>
+			PaymentSense Integration Guide
+		</title>
+		<style TYPE="text/css">
+		
+       		h1 
+				{ 
+					color: #F7931E;
+					font-size:16px;
+					font-style:bold;
+					margin-after:10px;
+				}
+      		h2 
+      			{
+      				color: #1E478E;
+      				font-size:18px;
+					font-style:bold;
+      				margin-after:10px;
+				}
+				
+			p
+				{
+					font-size:13px;
+					line-height:18px;
+					margin:0;
+				}
+				
+			ol.d 
+				{
+					list-style-type: lower-alpha;
+				}
+						
+       		body
+       			{
+       				
+       				color: #555555;
+       				font-size:13px;
+       				font-family: "Arial", Gadget, sans-serif;
+       				background-color:#bbbbbb;
+				}
+				
+			#main_content
+				{
+					width: 908px;
+					margin-left: auto;
+					margin-right: auto;
+					border-width: 1px;
+					border-style: dotted;
+					border-color: #CCC;
+					border-top-style: none;
+					padding: 20px;
+					padding-top:20px;
+					margin-top: 103px;
+					background-color:#FFF;
+				}
+				
+			.floatleft
+				{
+					width:100%;
+					float:left;
+				}
+
+			.floatleft img
+				{
+					float:left;
+				}
+				
+			#headerlogo
+				{
+					height:82px;
+					width: 201px;
+					margin-top: 10px;
+					float:left;
+				    margin-left:10px;
+				    text-align:left;
+					background-color:#000;
+					background: url('http://www.paymentsense.co.uk/paymentsense/resources/gatewayLogo.png')
+				}
+				
+			#headerbg
+				{
+					height:103px;
+					width: 950px;
+					margin-left: -475px;
+					left:50%;
+					top:10px;
+					margin-right: auto;
+				    position:fixed;
+				    text-align:left;
+					background-color:#000;	
+					background: url('http://www.paymentsense.co.uk/paymentsense/resources/gatewayHeader.jpg');
+					background-repeat:no-repeat;
+				}
+				
+			.spacer10px
+				{
+					width:100%;
+					height:10px;
+					background-color:#BBB;
+					top:0;
+					position:fixed;
+				}
+				
+			.spacer10pxw
+				{
+					height:10px;
+					width: 948px;
+					margin-left: -475px;
+					left:50%;
+					top:110px;
+					margin-right: auto;
+				    position:fixed;
+				    text-align:left;
+					background-color:#FFF;
+					border-right-width: 1px;
+					border-right-style: dotted;
+					border-right-color: #CCC;
+					border-left-width: 1px;
+					border-left-style: dotted;
+					border-left-color: #CCC;
+				}
+				
+			#title
+				{
+					width: 950px;
+					margin-left: -90px;
+					left:50%;
+					top:0;
+					margin-right: auto;
+					margin-top:50px;
+				    position:fixed;
+				}
+				
+			#version
+				{
+					width: 950px;
+					margin-left: -75px;
+					left:50%;
+					top:0;
+					margin-right: auto;
+					margin-top:70px;
+				    position:fixed;
+				}
+				
+			#footer
+				{
+					margin-top:18px;
+					padding:10px;
+					text-align:center;
+					background-color:#BBB;
+				}
+				
+			#header h1
+				{
+					padding-left: 18px;
+				}
+				
+			hr
+				{
+					border-width: 1px;
+					border-style: dotted;
+					border-color: #CCC;	
+				}
+       		
+				
+       </style>
+              
+	</head>
+	<body>
+		<div class="spacer10px">
+		</div>
+		
+		<div id="headerbg">
+		
+			<div id="headerlogo">
+			</div>
+			
+		</div>
+		
+		<div id="title">
+			<h1> Hosted Payment Integration </h1>
+		</div>
+		
+		<div id="version">
+			<h1>" CSCart " - Version 4.x.x</h1>
+		</div>
+		
+		<div class="spacer10pxw">
+		</div>
+		<div id="main_content">
+			<div id="disclaimer">
+				<strong>Disclaimer:</strong> PaymentSense provides this code as an example of a working integration module. Responsibility for the final implementation, functionality and testing of the module resides with the merchant/merchants website developer.
+			</div>
+			<div id="introduction_content">
+			<hr/>
+				<h2>Introduction</h2>
+				
+				<p>
+					The files included in this pack are designed to integrate the PaymentSense Gateway with CSCart. This will enable you to connect your shopping cart to the PaymentSense gateway quickly and effectively.
+
+				</p>
+				<br/>
+				<p>	
+					<strong>NOTE:</strong> You must have installed CS-Cart version 4 before working through this integration document.
+				</p>
+				<br/>
+			</div>
+			<div id="integration_content">
+				<hr/>
+				<h2>Integration</h2>
+				
+				<p>
+					<strong>NOTE:</strong> You need to INSERT the SQL statements from within the <strong>paymentsense_sql.txt</strong> page into your CS-Cart database before continuing past this point.<br/>
+					<br/>
+				</p>
+				
+				<p>
+					<strong>NOTE:</strong> Using FTP, upload the three folders inside the <strong>files</strong> folder, <strong>'app'</strong>, <strong>'design'</strong> and <strong>'var'</strong> to the root of the CS-Cart environment this will place the files in the correct location.
+				</p>
+				<br/>
+				
+			</div>			
+			<div id="enable and configure_gateway_content">
+			<hr/>
+				<h2>Enable and Configure the PaymentSense Gateway </h2>
+				
+				<p>
+					<strong>NOTE:</strong> All gateway configurations are carried out from within the admin section of your CS-Cart account.
+				</p>
+				<br/>
+				<p>
+					<p>
+						<strong>NOTE:</strong> Make sure you have the <strong>GATEWAY</strong> MerchantID, Password and PreSharedKey <br/><strong>NOT THE LOGIN DETAILS FOR THE MERCHANT MANAGEMENT SYSTEM</strong>.<br/>
+						<br/>
+				
+					</p>
+					<p>
+					    <br/>
+						<strong>Add New Payment Method</strong> 
+						<br/>
+					</p>
+					<ol>
+					    <li>On the top right hand-side of the browser window you need to click on the <strong>Administration</strong> header and select <strong>Payment Methods</strong>.<br/></li>
+					    <li>To the left hand side click on the <strong>+</strong> button to add a new icon, this will open a pop-up window.<br/></li>
+						<li>Insert a <strong>Name</strong> for your payment method. (for example <strong>"Pay by Card"</strong>)</li>
+						<li>If you have multiple stores select the store you wish to apply PaymentSense as a payment method to.</li>
+						<li>Select <strong>PaymentSense</strong> for the <strong>Processor</strong>.</li>
+						<li>You do not need to worry about the <strong>Template</strong> as this will be set automatically.</li>
+						<li>Select the <strong>User Groups</strong> that you want to allow to use this payment method at checkout. (By default this is set to <strong>All</strong>).</li>
+						<li>Enter a <strong>Description</strong> for your payment method.(for example <strong>"Secured By PaymentSense"</strong>) </li>
+						<li>Enter a <strong>Surcharge</strong> if you wish to charge your customers for using a card payment.</li>
+						<li>Set a <strong>Surcharge Title</strong> for example (card handling).</li>
+						<li>Set <strong>Payment Instructions</strong> for your customers.</li>
+						<li>Ensure the <strong>Status</strong> is set as Active for the PaymentSense Account.</li>
+						<li>set an icon.</li>
+						<li>Click <strong>Create</strong> in the botom right corner.</li>
+				    </ol>
+					<p>
+					    <br/>
+						<strong>Configure PaymentSense</strong> 
+						<br/>
+					</p>
+					<ol>
+					    <li>Click on the payment method you have just added.</li>
+						<li>Click on <strong>Configure</strong> tab.</li>
+						<li>Enter the Gateway <strong>Merchant ID</strong>.</li>
+						<li>Enter your <strong>Pre-Shared Key</strong>.</li>
+						<li>Enter the Gateway Merchant <strong>Password</strong>.</li>
+						<li>Select your <strong>Transaction Type</strong>. If you take payments immediately then select <strong>Sale</strong>. If you deal with pre-orders and wish to take the payment manually at a later date then select <strong>Preauth</strong>.</li>
+						<li>Select the default <strong>Currency</strong></li>
+						<li>Select <strong>Yes</strong> for <strong>CVV2 Required</strong>.</li>
+						<li>Select <strong>Yes</strong> for <strong>Country Required</strong>.</li>
+						<li>Select <strong>Yes</strong> for <strong>State/Province Required</strong>.</li>
+						<li>Select <strong>Yes</strong> for <strong>City Required</strong>.</li>
+						<li>Select <strong>Yes</strong> for <strong>Address Required</strong>.</li>
+						<li>Select <strong>Yes</strong> for <strong>Zip/postal code Required</strong>.</li>
+						<li>Click on <strong>Save</strong></li>
+					</ol>
+				</p>
+				<p>
+					Your payment method will now be set up. Please attempt to run some test transactions.  
+				</p>
+
+				<br/>
+			</div>
+			<div id="testing">
+				<hr/>
+				<h2>Testing</h2>
+				<p>
+					<strong>NOTE:</strong> If using the test gateway[recommended] then please use the test card details included in the module pack. 
+					<br/>If you are using the Live account then you will need to test using real card details [not recommended untill after testing with test account].
+					<br/>
+					
+				</p>
+				<br/>
+			</div>
+				
+				<div id="merchant_design_content">
+				<hr/>
+				<h2>Merchant Environment Design Section</h2>
+				<p>
+					<strong>NOTE:</strong> If the developer/merchant wishes to change the skin of the hosted payment page then please contact devsupport@paymentsense.com for more information.
+					<br/>
+					
+				</p>
+				<br/>
+				<hr/>
+			</div>
+			<div id="footer">
+				<p>Copyright &copy; 2013 PaymentSense Ltd. All rights reserved.</p>
+				<p>devsupport@PaymentSense.com</p>
+			</div>
+		</div>
+	</body>
+</html>
